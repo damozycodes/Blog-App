@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+        <div class="content-section">
+            <div class="media">
+                <img class="rounded-circle account-img img1" src="{{ user.profile.image.url}}" alt="{{user.username}}, picture">
+              <div class="media-body">
+                  <h2 class="account-heading">{{user.username}}</h2>
+                  <p class="text-secondary">Country: {{user.profile.country}}</p>
+                  <p class="text-secondary">Email: {{user.email}}</p>
+                  <div>
+                      <a class="btn btn-secondary btn-sm mb-5" href="{% url 'post-create' %}">Create Post<a/>
+                      <a class="btn btn-secondary btn-sm mb-5" href="{% url 'update-profile' %}">Update Profile<a/>
+                  </div>
+              </div>
+            </div>
+        </div>
+{% endblock content %}
